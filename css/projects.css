@@ -1,0 +1,33 @@
+body {
+    background-color: #121212;
+    font-family: Verdana;
+    color: antiquewhite;
+    text-align: center;
+}
+
+nav {
+    background: #00000090;
+    width: 100%;
+    text-align: center;
+    color: antiquewhite;
+}
+
+nav ul li {
+    display: inline-block;
+    list-style: none ;
+    margin: 20px 30px;
+    font-size: 1.4em;
+}
+
+nav ul li:hover {
+    color: aqua;
+}
+
+a {
+    color: aqua;
+    text-decoration: none;
+}
+
+a:hover {
+    font-weight: bold;
+}

@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Verdana";
+}
+
+body {
+    background-color: #232323;;
+}
+
+.header {
+    width: 100%;
+    height: 70vh;
+    background-image: url(../images/math-homework.png);
+    background-position: center;
+    background-size: cover;
+}
+
+nav {
+    background: #1212127e;
+    width: 100%;
+    text-align: center;
+    color: antiquewhite;
+}
+
+nav p {
+    font-weight: bold;
+}
+
+nav ul {
+    background: #121212;
+    width: 100%;
+    margin-top: 10px;
+}
+
+nav ul li {
+    display: inline-block;
+    list-style: none ;
+    margin: 20px 30px;
+    
+    font-size: 1.4em;
+}
+
+nav ul li:hover {
+    color: aqua;
+}
+
+nav.sticky {
+    background: #121212;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: padding ease-in-out 0.5s;
+ 
+}
+
+.profile {
+    width: 150px;
+    border-radius: 50%;
+}
+
+
+.links {
+    margin-top: 3%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+}
+
+.links img {
+    width: 20%;
+    max-width: 200px;
+}
+
+.links img:hover {
+    border-radius: 10%;
+    background-color: antiquewhite;
+}
+
+.about {
+    margin: auto;
+    padding: 5%;
+    color: antiquewhite;
+    font-family: sans-serif;
+    max-width: 1000px;
+}
+
+.about h2, h3 {
+    text-align: center;
+    font-size: x-large;
+    padding-top: 2%;
+}
+
+.about ul {
+    margin-left: 3%;
+    padding-top: 2%;
+}
+
+.about p {
+    padding-top: 2%;
+}
+
+.cards {
+    max-width: 100%;
+    padding: 5%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+.card {
+    background-color: #192734;
+    padding: 24px;
+    box-shadow: 0 0 24px rgba(0, 0, 0, 0.35);
+    border-radius: 5%;
+    max-width: 400px;
+    width: 30%;
+    margin: 1.5%;
+
+}
+
+.card-title {
+    color: antiquewhite;
+    text-align: center;
+    font-size: 1.5em;
+}
+
+.card-body {
+    padding-top: 3%;
+    color: #b3b3b3
+}
+.card-images {
+    display: flex;
+    flex-flow: row wrap;
+    grid-gap: 3%;
+    padding-top: 2%;
+}
+
+.card-images img {
+    width: 30%;
+    padding: 3%;
+}
+
+@media screen and (max-width: 800px) {
+    nav {
+        padding: 1%;
+    }
+
+    nav.sticky {
+        padding: 0%;
+    }
+
+    nav.sticky ul li {
+        display: list-item;
+        font-size: small;
+    }
+
+    nav.sticky p {
+        display: none;
+
+    }
+    nav.sticky img {
+        display: none;
+    }
+    .cards {
+        display: flex;
+    }
+    .card {
+        margin-top: 3%;
+        width: 100%;
+    }
+}

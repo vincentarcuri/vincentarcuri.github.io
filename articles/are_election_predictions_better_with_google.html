@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/article.css" />
+    <script src="../js/links.js" defer></script>
+    <title>Are Election Predictions Better with Google Trends?</title>
+</head>
+
+<body>
+    <nav>
+        <ul id="menu">
+            <li id="linkHome" data-link="../index.html">HOME</li>
+            <li id="linkArticles" data-link="index.html">ARTICLES</li>
+            <li id="linkProjects" data-link="../projects.html">PROJECTS</li>
+            <li id="linkTutoring" data-link="../resources/PeerTutoringFlyer.pdf">PEER TUTORING</li>
+        </ul>
+    </nav>
+
+    <div id="heading">
+        <img src="assets/gtstates-1-768x475.png" alt="US Google Trends" class="title-image">
+        <div class="title-text">
+            <h1>Are Election Predictions Better with Google Trends?</h1>
+        </div>
+    </div>
+    <div class="article">
+        <h4>November 17, 2022</h4>
+        <hr>
+        <h2>Google Trends is a great tool for research and SEO, but can it predict elections? I trained a model on the
+            Cook Partisan Voter Index and Google Trends data to see what power it had in predicting the 2022 Senate race
+        </h2>
+        <p>
+            On the morning of election day, I <a
+                href="https://public.tableau.com/views/SenateElectionPredictionwithGoogleTrends2022-11-7/US?:language=en-US&amp;:display_count=n&amp;:origin=viz_share_link"
+                target="_blank" rel="noopener">posted predictions</a> for the United States Senate, which were 97%
+            accurate (all the seats, except as of now: Alaska, but we’ll discuss how that went awry later). I know what
+            you’re thinking, “The Georgia election is undecided; it’s going to a runoff election”; however, Raphael
+            Warnock won the majority of the votes. The prediction model wasn’t sophisticated enough to factor in the
+            idiosyncrasies of the Georgia election process, so I’m counting it!
+        </p>
+        <p>You can see my predictions below.</p>
+        <div class="tableau">
+            <div class="tableauPlaceholder" id="viz1668704741761" style="position: relative"><noscript><a href="#"><img
+                            alt=" "
+                            src="https://public.tableau.com/static/images/Se/SenateElectionPredictionwithGoogleTrends2022-11-7/US/1_rss.png"
+                            style="border: none"></a></noscript><object class="tableauViz" style="display:none;">
+                    <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F">
+                    <param name="embed_code_version" value="3">
+                    <param name="site_root" value="">
+                    <param name="name" value="SenateElectionPredictionwithGoogleTrends2022-11-7/US">
+                    <param name="tabs" value="yes">
+                    <param name="toolbar" value="no">
+                    <param name="static_image"
+                        value="https://public.tableau.com/static/images/Se/SenateElectionPredictionwithGoogleTrends2022-11-7/US/1.png">
+                    <param name="animate_transition" value="yes">
+                    <param name="display_static_image" value="yes">
+                    <param name="display_spinner" value="yes">
+                    <param name="display_overlay" value="yes">
+                    <param name="display_count" value="yes">
+                    <param name="language" value="en-US">
+                </object></div>
+            <p>
+                <script
+                    type="text/javascript">                    var divElement = document.getElementById('viz1668704741761'); var vizElement = divElement.getElementsByTagName('object')[0]; if (divElement.offsetWidth > 800) { vizElement.style.minWidth = '420px'; vizElement.style.maxWidth = '100%'; vizElement.style.minHeight = '610px'; vizElement.style.maxHeight = (divElement.offsetWidth * 0.75) + 'px'; } else if (divElement.offsetWidth > 500) { vizElement.style.minWidth = '420px'; vizElement.style.maxWidth = '100%'; vizElement.style.minHeight = '610px'; vizElement.style.maxHeight = (divElement.offsetWidth * 0.75) + 'px'; } else { vizElement.style.width = '100%'; vizElement.style.minHeight = '800px'; vizElement.style.maxHeight = (divElement.offsetWidth * 1.77) + 'px'; } var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            </p>
+        </div>
+        <p>And here is the <a href="https://en.wikipedia.org/wiki/2022_United_States_Senate_elections" target="_blank"
+                rel="noopener">current result</a>.
+        </p>
+        <img src="assets/2022ussenate-768x475.png" style="max-width:100%; margin-left: 5%;">
+        <figcaption>Wikipedia</figcaption>
+        <p>
+            In the months leading up to the election, the media channels began forecasting a ‘<a
+                href="https://www.nytimes.com/2022/10/25/us/politics/blue-states-midterm-landscape.htm" target="_blank"
+                rel="noopener">red wave</a>’ as voters’ concerns veered toward issues that favor&nbsp;<a
+                href="https://www.nytimes.com/2022/10/17/us/politics/republicans-economy-nyt-siena-poll.html"
+                target="_blank" rel="noopener">Republican campaigns</a>. The <a
+                href="https://www.nytimes.com/2022/10/20/podcasts/the-daily/midterms-polling-swing-voters.html"
+                target="_blank" rel="noopener">prevailing theory</a> was that salient media coverage of crime and
+            economic downturn increased Republican chances while waning coverage of abortion and “the future of
+            democracy” disadvantaged Democrats. To confirm what people were thinking about, I entered these top to <a
+                href="https://trends.google.com/trends/?geo=US">Google Trends</a> assuming search volume is a good proxy
+            for relative interest — after all, the 50 billion dollar search engine optimization industry is predicated
+            on this. Unsurprisingly, the pundits were right; searches for “crime” and “inflation” had surpassed
+            “abortion” since its summer peak. I thought, perhaps, I could use search volume activity to predict the next
+            candidate.
+        </p>
+        <p>
+            As I searched for how voters’ primary concerns affect their decision at the polls, I came across this <a
+                href="https://www.pewresearch.org/politics/2022/10/20/the-midterm-elections-and-views-of-biden/"
+                target="_blank" rel="noopener">recent poll, published by Pew Research</a>, analyzing the top issues of
+            voters by their political alignment.
+        </p>
+        <img src="assets/pewresearch.png" style="max-width: 100%; margin-left:5%">
+        <p>
+            This poll reminded me that voters are more nuanced than the analysts often lead on. There is no quantitative
+            method to translate an issue’s saliency to votes, or at least no method I could accomplish.
+            Republican-identifying voters may care more about violent crime than a Democrat-identifying voter, but that
+            doesn’t mean a crime-concerned undecided voter votes Republican with certainty.
+        </p>
+        <p>
+            Top issues were not going to be a good predictor of the election. However, I could compare searches of the
+            candidates themselves as a predictor. There has been some research to back this up as well. <a
+                href="https://journals.sagepub.com/doi/abs/10.1177/0002764220975067" target="_blank" rel="noopener">One
+                study</a> found that Google Trends scores have correctly predicted presidential elections since 2004. I
+            wanted to see its predictive power for Senate elections.
+        </p>
+        <h2>Methodology & Testing</h2>
+        <p>For each Senate election since 2006*, I recorded the following data about the winner and runner-up:</p>
+        <ul>
+            <li>Their political party (or the party with which they caucus/align themselves).</li>
+            <li>Their state’s average compared Google Trends score: 7, 15, and 30 days before the election.</li>
+            <li>The state’s Cook Partisan Voting Index CPVI score.</li>
+            <li>Whether or not they were an incumbent.</li>
+        </ul>
+        <p>
+            Then I trained a <a href="https://www.ibm.com/cloud/learn/random-forest" target="_blank"
+                rel="noopener">Random Forest</a> model on the data. The model would then take in the Google Trend score,
+            the CPVI score, and incumbency to predict which candidate would win the election.
+        </p>
+        <p>
+            When testing the model, the Google Trends data was not very predictive. It only predicted the correct
+            candidate 64% of the time;&nbsp; however, when combined with CPVI and incumbency, it did slightly improve
+            the prediction rate to 87% from 84%.
+        </p>
+        <img src="assets/historical.jpeg" style="max-width: 100%; margin-left:5%">
+        <p>This makes intuitive sense if we view a swing voter as a microcosm of their state electorate: the Trends
+            score is their interest in each candidate and the CPVI is their political leaning. Even if they’re slightly
+            more interested in a candidate, for whatever reason, it may not be enough to vote for someone less
+            politically aligned with them. That is what we see when testing the model. The Google Trends data improves
+            model performance when CPVI is low.
+        </p>
+        <h3>Issues with Trends Data</h3>
+        <ul>
+            <li>The model was designed to predict a Democrat or a Republican. Although some mainstream candidates run
+                under ‘independent’ or ‘libertarian’ parties, they usually align or caucus with one of the parties
+                (e.g., Bernie Sanders with Democrats and Rand Paul with Republicans). However, this setup caused issues
+                with the 2022 Alaska election as the two main candidates were both Republicans.
+            </li>
+            <li>Google Trends compares searches as “topics” or “search terms”. Some candidates were not available for
+                search as “topic”, so both candidates’ scores were recorded with their “search term” score.
+            </li>
+            <li>When recording the Google Trends score before the elections, their average scores were calculated
+                differently from the archival calculation leading to lower scores for the 7-day average in the 2022
+                election.
+            </li>
+        </ul>
+        <h2>Did Google Trends Predict the Election?</h2>
+        <p>On election night, I found myself forgetting my political views and cheering on the model’s predictions. As
+            the votes were coming in, I began to think Google Trends helpful in predicting the Senate elections, but
+            when I looked at how the different models performed on the election I realized that the Google Trends data
+            did not affect the prediction. The model with Google Trends and without performed the same.
+        </p>
+        <img src="assets/midterms.jpeg" style="max-width: 100%; margin-left:5%">
+        <p>Why didn’t Google Trends assist the election predictions? Well, when the error is only one wrong prediction
+            (possibly wrong, the Alaskan votes have yet to be fully counted), there is not much room for improvement.
+            The Google Trends data may not have improved the prediction result, but it did provide a more nuanced
+            probability of that result.
+        </p>
+        <figure>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class="has-text-align-center" data-align="center"></td>
+                        <td><em>with Google Trends</em></td>
+                        <td></td>
+                        <td><em>without Google Trends</em></td>
+                        <td></td>
+                        <td><em>Results</em></td>
+                    </tr>
+                    <tr>
+                        <td class="has-text-align-center" data-align="center"><strong>State</strong></td>
+                        <td><strong>Prediction</strong></td>
+                        <td><strong>Probability</strong></td>
+                        <td><strong>Prediction</strong></td>
+                        <td><strong>Probability</strong></td>
+                        <td><strong>Winner</strong></td>
+                    </tr>
+                    <tr>
+                        <td class="has-text-align-center" data-align="center"><strong>ALASKA</strong></td>
+                        <td>MURKOWSKI</td>
+                        <td>0.56</td>
+                        <td>MURKOWSKI</td>
+                        <td>1.00</td>
+                        <td>TSHIBAKA</td>
+                    </tr>
+                    <tr>
+                        <td class="has-text-align-center" data-align="center"><strong>COLORADO</strong></td>
+                        <td>BENNET</td>
+                        <td>0.80</td>
+                        <td>BENNET</td>
+                        <td>1.00</td>
+                        <td>BENNET</td>
+                    </tr>
+                    <tr>
+                        <td class="has-text-align-center" data-align="center"><strong>GEORGIA</strong></td>
+                        <td>WARNOCK</td>
+                        <td>0.59</td>
+                        <td>WARNOCK</td>
+                        <td>0.58</td>
+                        <td>WARNOCK</td>
+                    </tr>
+                    <tr>
+                        <td class="has-text-align-center" data-align="center"><strong>N. C.</strong></td>
+                        <td>BUDD</td>
+                        <td>0.61</td>
+                        <td>BUDD</td>
+                        <td>0.79</td>
+                        <td>BUDD</td>
+                    </tr>
+                    <tr>
+                        <td class="has-text-align-center" data-align="center"><strong>N. H.</strong></td>
+                        <td>HASSAN</td>
+                        <td>0.65</td>
+                        <td>HASSAN</td>
+                        <td>0.90</td>
+                        <td>HASSAN</td>
+                    </tr>
+                    <tr>
+                        <td class="has-text-align-center" data-align="center"><strong>NEVADA</strong></td>
+                        <td>MASTO</td>
+                        <td>0.82</td>
+                        <td>MASTO</td>
+                        <td>.98</td>
+                        <td>MASTO</td>
+                    </tr>
+                    <tr>
+                        <td class="has-text-align-center" data-align="center"><strong>OHIO</strong></td>
+                        <td>VANCE</td>
+                        <td>0.70</td>
+                        <td>VANCE</td>
+                        <td>0.93</td>
+                        <td>VANCE</td>
+                    </tr>
+                    <tr>
+                        <td class="has-text-align-center" data-align="center"><strong>PENNSYLVANIA</strong></td>
+                        <td>FETTERMAN</td>
+                        <td>0.61</td>
+                        <td>FETTERMAN</td>
+                        <td>0.59</td>
+                        <td>FETTERMAN</td>
+                    </tr>
+                    <tr>
+                        <td class="has-text-align-center" data-align="center"><strong>WISCONSIN</strong></td>
+                        <td>JOHNSON</td>
+                        <td>0.57</td>
+                        <td>JOHNSON</td>
+                        <td>0.86</td>
+                        <td>JOHNSON</td>
+                    </tr>
+                </tbody>
+            </table>
+            <figcaption class="wp-element-caption">Election Predictions with and without Google Trends on close Senate
+                races</figcaption>
+        </figure>
+        <p>
+            You can see that, for Alaska, the model with Google Trends gives Lisa Murkowski (who still might win) a much
+            smaller chance of winning from the model using only CPVI and Incumbency. It just so happens that in this
+            election, the Google Trends score was not enough to tip the prediction in another direction.
+        </p>
+        <h2>Future Elections</h2>
+        <p>
+            Elections are decided by swing voters, and <a
+                href="https://www.youtube.com/watch?v=RpdB91u8Q7E&amp;t=2353s&amp;ab_channel=EmoryUniversity"
+                target="_blank" rel="noopener">swing voters are a smaller percentage</a> of the electorate than they
+            used to be. With <a
+                href="https://www.cookpolitical.com/analysis/national/national-politics/calcified-politics-gives-us-another-close-election"
+                target="_blank" rel="noopener">political calcification</a> at an all-time high, CPVI will likely be the
+            best predictor for future elections as the swing from left to right narrows. Google Trends may improve
+            predictions in states with low CPVI scores; however, with the swing voter population shrinking, swing voter
+            search volume shrinks as well. It may be difficult to ascertain whether swing voters are included in the
+            search volume advantage of a particular candidate. Another issue with using Google Trends is that it is only
+            available for larger elections like President, Governor, or Senator as the Google Trends map does not allow
+            for congressional district-level accuracy. While it does appear that Trends does improve the prediction
+            model slightly, it is unclear whether it will continue to do so; we’ll just have to see in the next
+            election.
+        </p>
+        <p><a href="https://github.com/vincentarcuri/data-analysis-projects/blob/main/SenateElections2022.ipynb"
+                target="_blank" rel="noopener">View the code on GitHub.</a>
+        </p>
+        <p>&#8718</p>
+    </div>
+    <nav>
+        <a href="index.html">Back to Articles</a>
+    </nav>
+</body>
+
+</html>
