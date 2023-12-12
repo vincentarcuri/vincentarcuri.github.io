@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="assets/styles.css" />
+    <title>How to Choose the Best Location for Your Business</title>
+</head>
+
+<body>
+    <nav>
+        <a href="index.html">Back to Articles</a>
+    </nav>
+    <div id="heading">
+        <img src="assets/pexels-ellie-burgin-3274845-2048x1547.jpg" alt="Workers in a Kitchen" style="width:100%"
+            class="title-image">
+        <div class="title_text">
+            <h1>Worried About the Restaurant Worker Shortage?</h1>
+        </div>
+    </div>
+    <div class="article">
+        <h2>
+            Using machine learning and web scraping to find the right locations for convenience stores in North
+            Carolina.
+        </h2>
+        <p>
+            <a href="https://github.com/vincentarcuri/data-analysis-projects/blob/main/New%20Markets%20for%20Small%20Business/Convenience%20Stores%20North%20Carolina.ipynb"
+                target="_blank" rel="noopener">View the companion code on GitHub.</a>
+        </p>
+        <p>
+            I don’t need to repeat <em>location</em> three times to stress how important it is to the success of a
+            business. We see its effect all the time — that one shopping center, with the awkward left turn, that seems
+            to host a different set of stores every year, or we’ve had the misfortune of eating at that packed
+            waterfront restaurant with five-star prices and one-star entrees. Location can make or break your business.
+        </p>
+        <p>
+            Even though we intuitively know location’s importance, there is a lack of tools for finding that perfect
+            location, so I decided to devise my own method. Here, we will use that method to research the best locations
+            to open a convenience store in North Carolina.
+        </p>
+        <h3>The Method</h3>
+        <ol>
+            <li>Find the best counties to open a convenience store.</li>
+            <li>Collect data about the convenience stores in those counties</li>
+            <li>Map those stores out to find what locations are most profitable.</li>
+        </ol>
+        <h2>Step One: Find the counties</h2>
+        <p>
+            To find the best counties to open a convenience store, we’re going to have to make some assumptions about
+            what factors will help our business. We are going to choose counties with a low ratio of convenience stores
+            to population and with a relatively high average income. To do this, we are going to use a machine learning
+            technique called <a
+                href="https://towardsdatascience.com/understanding-the-concept-of-hierarchical-clustering-technique-c6e8243758ec"
+                target="_blank" rel="noopener">hierarchical clustering</a>.
+        </p>
+        <h3>What is Clustering?</h3>
+        <p>
+            Clustering is a statistical technique for grouping similar data together. In our case, we are using
+            clustering to group counties based on population, the number of convenience stores, and average income.
+            Then, we will pick the cluster of counties that best matches our assumptions for choosing a location.
+        </p>
+        <p>Based on our clustering model, we will focus our research on the following counties:</p>
+        <ul>
+            <li>Alamance</li>
+            <li>Brunswick</li>
+            <li>Buncombe</li>
+            <li>Cabarrus</li>
+            <li>Catawba</li>
+            <li>Davidson</li>
+            <li>Gaston</li>
+            <li>Harnett</li>
+            <li>Iredell</li>
+            <li>Johnston</li>
+            <li>New Hanover</li>
+            <li>Onslow</li>
+            <li>Pitt</li>
+            <li>Randolph</li>
+            <li>Robeson</li>
+            <li>Rowan</li>
+            <li>Union</li>
+            <li>Wayne</li>
+        </ul>
+        <div class="tableau">
+            <div class="tableauPlaceholder" id="viz1664725460544" style="position: relative"><noscript><a href="#"><img
+                            alt=" "
+                            src="https://public.tableau.com/static/images/Be/BestConvenienceStoreLocationsinNorthCarolina/ConvenienceStoreMarketsinNorthCarolina/1_rss.png"
+                            style="border: none"></a></noscript><object class="tableauViz" style="display:none;">
+                    <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F">
+                    <param name="embed_code_version" value="3">
+                    <param name="site_root" value="">
+                    <param name="name"
+                        value="BestConvenienceStoreLocationsinNorthCarolina/ConvenienceStoreMarketsinNorthCarolina">
+                    <param name="tabs" value="no">
+                    <param name="toolbar" value="no">
+                    <param name="static_image"
+                        value="https://public.tableau.com/static/images/Be/BestConvenienceStoreLocationsinNorthCarolina/ConvenienceStoreMarketsinNorthCarolina/1.png">
+                    <param name="animate_transition" value="yes">
+                    <param name="display_static_image" value="yes">
+                    <param name="display_spinner" value="yes">
+                    <param name="display_overlay" value="yes">
+                    <param name="display_count" value="yes">
+                    <param name="language" value="en-US">
+                </object></div>
+            <p>
+                <script
+                    type="text/javascript">                    var divElement = document.getElementById('viz1664725460544'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            </p>
+
+        </div>
+        <h2>Step Two: Gather the Convenience Store Data</h2>
+        <p>
+            Now that we have the counties that are best for our convenience store, we can research the convenience
+            stores
+            that are already there to help make our decision. Luckily, the <a href="https://www.commerce.nc.gov/"
+                target="_blank" rel="noopener">NC Department of Commerce website</a> &nbsp;has a data tool that provides
+            information about businesses by county. To quickly collect this data, I made a <a
+                href="https://www.selenium.dev/documentation/webdriver/" target="_blank" rel="noopener">Selenium</a> bot
+            to web scrape the data from the website (<a
+                href="https://github.com/vincentarcuri/data-analysis-projects/blob/main/New%20Markets%20for%20Small%20Business/NC%20Commerce%20Scraper.ipynb"
+                target="_blank" rel="noopener">you can view the code on GitHub</a>).
+        </p>
+        <p>Check out the video below to watch the scraper in action.</p>
+        <p>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/c84fbjf7mk0"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen="">
+            </iframe>
+        </p>
+        <p>
+            With the data collected, it is important to separate the large chain convenience stores from the independent
+            owner-operators to view their average annual sales. Large chains typically can pull customers from smaller
+            operations, so it's important to compare the average annual sales in each county.
+        </p>
+        <div class="tableau">
+            <div class="tableauPlaceholder" id="viz1664726262032" style="position: relative"><noscript><a href="#"><img
+                            alt=" "
+                            src="https://public.tableau.com/static/images/Be/BestConvenienceStoreLocationsinNorthCarolina/ConvenienceStoreSalesIndendentvs_LargeChain/1_rss.png"
+                            style="border: none"></a></noscript><object class="tableauViz" style="display:none;">
+                    <param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F">
+                    <param name="embed_code_version" value="3">
+                    <param name="site_root" value="">
+                    <param name="name"
+                        value="BestConvenienceStoreLocationsinNorthCarolina/ConvenienceStoreSalesIndendentvs_LargeChain">
+                    <param name="tabs" value="no">
+                    <param name="toolbar" value="no">
+                    <param name="static_image"
+                        value="https://public.tableau.com/static/images/Be/BestConvenienceStoreLocationsinNorthCarolina/ConvenienceStoreSalesIndendentvs_LargeChain/1.png">
+                    <param name="animate_transition" value="yes">
+                    <param name="display_static_image" value="yes">
+                    <param name="display_spinner" value="yes">
+                    <param name="display_overlay" value="yes">
+                    <param name="display_count" value="yes">
+                    <param name="language" value="en-US">
+                </object></div>
+            <p>
+                <script
+                    type="text/javascript">                    var divElement = document.getElementById('viz1664726262032'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            </p>
+            <h2>Step 3: Mapping Out the Locations</h2>
+            <p>
+                Using our data collected from the NC Department of Commerce, we can map those locations on Google Maps.
+                Now we can see the locations of the large chains (red markers) and small stores (blue markers). We can
+                also see what each store’s annual sales are to better inform our decision.
+            </p>
+            <p>
+                <iframe
+                    src="https://www.google.com/maps/d/u/1/embed?mid=1UXLoK4JAXD-8K56gEXZp7e2mVflzRD0&amp;ehbc=2E312F"
+                    width="100%" height="540">
+                </iframe>
+            </p>
+            <p>
+                We know from the bar graph above that independent convenience stores make more money on average in
+                Johnston County. We can use our map to zoom in on the convenience stores in the area and click on the
+                markers to find more information.
+            </p>
+            <img src="assets/Screen-Shot-2022-10-01-at-2.18.23-PM.png" alt="Screenshot of Map" style="max-width: 75%;">
+            <p>. . . And that's our method for helping you pick the right location for your business! </p>
+            <p>&#8718</p>
+        </div>
+    </div>
+    <nav>
+        <a href="index.html">Back to Articles</a>
+    </nav>
+</body>
+
+</html>
