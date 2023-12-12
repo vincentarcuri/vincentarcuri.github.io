@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Vincent Arcuri</title>
+    <script src="js/navbar.js" defer></script>
+    <script src="js/slideshow.js" defer></script>
+    <script src="js/links.js" defer></script>
+    <link rel="stylesheet" href="css/home.css"/>
+</head>
+<body>
+    <div class="header">
+        <nav id="navbar">
+            <img src="images/profile-pic.jpg" class="profile"/>
+            <p>
+                Data Science Student <br/>
+                Peer Tutor
+            </p>
+            <ul id="menu">
+                <li id="linkHome" data-link="index.html">HOME</li>
+                <li id="linkArticles" data-link="articles/index.html">ARTICLES</li>
+                <li id="linkProjects" data-link="projects.html">PROJECTS</li>
+                <li id="linkTutoring" data-link="resources/PeerTutoringFlyer.pdf">PEER TUTORING</li>
+            </ul>
+        </nav>
+    </div>
+    <div class="links">
+            <img id="linkLinkedIn" src="images/linkedin-logo.png" alt="LinkedIn logo"/>
+            <img id="linkGithub" src="images/github-logo.png" alt="GitHub Logo"/>
+            <img id="linkTableau" src="images/tableau-logo.png" alt="tableau logo"/>
+    </div>
+
+
+    <div class="cards">
+        <div class="card">
+            <p class="card-title">Hi, I'm Vincent!</p>
+            <p class="card-body">My journey into the world of data science and programming began out of a curiosity in Python in 2022. What started
+                as a hobby quickly became a passion, propelling me to pursue a formal education to deepen my
+                understanding.
+            </p>
+        </div>
+        <div class="card">
+            <p class="card-title">Academic Pursuits</p>
+            <p class="card-body">Currently enrolled in the Data Science and Programming Support Service program at Wake Technical
+                Community College, maintaining a 4.0 GPA.<br/>
+                Supplementing my technical coursework with a strong foundation in mathematics to enhance my
+                analytical abilities and prepare for a master's degree in data science.
+            </p>
+        </div>    
+        <div class="card">
+            <p class="card-title">Peer Tutor</p>
+            <p class="card-body">Recognized for my academic achievements, I'm proud to serve as Peer Tutor in the subjects of
+                PreCalculus, Calculus, Python, and Database Programming. It's incredibly rewarding to support fellow
+                students in these areas and work with the Peer Tutor team to better facilitate academic success.
+            </p>
+        </div>
+        <div class="card">
+            <p class="card-title">Aspiring Master's Candidate</p>
+            <p class="card-body">My sights are set on a master's degree in data science, and every day at Wake Tech is a step toward
+                that goal. The blend of programming, data analysis, and mathematics is preparing me for the exciting
+                challenges ahead.
+            </p>
+        </div>
+        <div class="card">
+            <p class="card-title">Skills</p>
+            <div class="card-images">
+                <img src="images/python-logo.png" alt="Python"/>
+                <img src="images/JavaScript-logo.png" alt="Javascript"/>
+                <img src="images/HTML5-logo.png" alt="HTML5"/>
+                <img src="images/tableau-logo.png" alt="tableau"/>
+                <img src="images/excel-logo.png" alt="Excel"/>
+                <img src="images/sql-logo.png" alt="SQL"/>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const linkedin = document.getElementById("linkLinkedIn");
+        const github = document.getElementById("linkGithub");
+        const tableau = document.getElementById("linkTableau");
+
+        linkedin.addEventListener('click', function() {
+        window.open("https://www.linkedin.com/in/vincent-arcuri-289824249", '_blank');
+        });
+
+        github.addEventListener('click', function() {
+        window.open('https://github.com/vincentarcuri/', '_blank');
+        });
+
+        tableau.addEventListener('click', function() {
+        window.open('https://public.tableau.com/app/profile/vincent.arcuri/vizzes', '_blank');
+        });
+    </script>
+</body>
+</html>
