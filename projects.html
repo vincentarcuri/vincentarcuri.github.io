@@ -120,8 +120,87 @@
             </div>
         </div>
     </div>
+    <div class="updated">
+        <p><i>Updated</i>: 2024-01-05</p>
+    </div>
+    <div class="github-view">
+        <a href="https://github.com/vincentarcuri/flask-chess" target="_blank">View on Github</a>
+        <img src="images/github-logo.png"/>
+    </div>
 </div>
 
+<div class="card">
+    <a name="terminal-chess"></a>
+    <h1 class="card-title">Terminal Chess</h1>
+    <p>
+        The Terminal Chess program is for playing chess in the terminal on a UNIX-like system.
+        <br/><br/>
+        Previously, I had written a chess program in PyGame, and it was one of the first "bigger" project I ever took on.
+        The PyGame program I wrote, however, was what they call spaghetti code. I was even to ashamed to upload it to GitHub,
+        and even I barely could remember how it worked.
+        <br/><br/>
+        I decided to rewrite a chess program with my knowledge of what parts needed to fit together, and separating out the 
+        chess game logic from the interface after learning MVC architectures.<br/>
+        When I finished writing and testing the piece and board components, I wasn't quite sure how I wanted to implement the UI,
+        but then I discovered the Python <code>curses</code> library. I found it was pretty quick to make a terminal version and I could 
+        learn a little about how to implement the controller aspect.
+    </p>
+    <div class="img-cards">
+        <div class="img-card">
+            <img src="images/terminal-chess-board.png" alt="Terminal Chess board"/>
+            <p>Terminal chess on mac</p>
+        </div>
+    </div>
+    <h3 class="card-title">Alpha-Beta Search & C++</h3>
+    <p>
+        After I had written the terminal chess application and a standalone web app, I read about minimax search. I was so excited
+        to try those algorithms out on my program. Well, I found out the hardway that the algorithm is the least difficult part of 
+        the process. My alpha-beta search algorithm took a whole minute just to search 3 ply in Python.
+        <br/><br/>
+        I did some research online and it seemed the opinion of the experts was that you shouldn't try to that kind of search in Python.
+        I was disappointed, but then I discovered the <code>ctypes</code> library, where you can compile C and C++ code to a shared library,
+        then call the functions from Python.
+        <br/><br/>
+        I spent an entire weekend rewriting the chess logic with alpha-beta search in C++, so excited to play the algorithm in chess.
+        But when I went to play it, it was actually slower than the Python version. Drats!<br/>
+        It was a great learning experience though.
+        <br/><br/>
+        I found the real problem is the implementation of the game is sub-optimal, and my C++ implementation, even more so.
+        So unfortunately the shared library remains a branch on GitHub, but if you want to check it out, you can find it
+        <a href="https://github.com/vincentarcuri/terminal-chess/tree/CPP-Minimax" target="_blank">here</a>. Or if you want to just check out the C++ implementation,
+        you can find that <a href="https://github.com/vincentarcuri/cpp-chess-files", target="_blank">here</a>. My future with the project will have to involve
+        bitboards, so once I have time I will dive in.
+    </p>
+    <div class="updated">
+        <p><i>Updated</i>: 2024-01-05</p>
+    </div>
+    <div class="github-view">
+        <a href="https://github.com/vincentarcuri/terminal-chess" target="_blank">View on Github</a>
+        <img src="images/github-logo.png"/>
+    </div>
+</div>
+<div class="card">
+    <a name="in-progress"></a>
+    <h1 class="card-title">Work In Progress</h1>
+    This is the stuff I'm working on right now, but is not on GitHub or other platforms yet.
+    <h3 class="card-title">vmathPy & vmathCpp</h3>
+    <p>
+        Last semester I took a Data Structures & Algorithms class, and I thought binary trees were coolest
+        thing in the world. Also, I love writing functions that correspond with what I'm learning in math class.
+        Well, what a great time to write a Recursive Descent Parser for math equations! I've always been annoyed
+        that I had to keep defining a new function and pass it as an argument, but now I can just pass a string.
+        The Python version is basically complete, but I need to add my math functions to it. And the C++ parser is in
+        the works. Why do both languages? I don't know; it's fun!
+    </p>
+    <h3 class="card-title">Azure DataBricks & PySpark</h3>
+    <p>
+        I'm currently taking an online course in DataBricks and PySpark. After finishing learning, I plan
+        on building some of my own projects and doing some data analysis. Most likely in the form of articles.
+    </p>
+    <div class="updated">
+        <p><i>Updated</i>: 2024-01-05</p>
+    </div>
+</div>
 
 </body>
 </html>
